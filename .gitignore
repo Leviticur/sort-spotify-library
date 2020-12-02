@@ -1,0 +1,6 @@
+__pycache__
+venv
+.cache
+tracks.json
+add_tracks.py
+
