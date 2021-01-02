@@ -118,9 +118,9 @@ def add_tracks(track_uris):
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-A', '--artists', action='store_true', help='')
-parser.add_argument('-a', '--albums', action='store_true', help='')
-parser.add_argument('-t', '--tracks', action='store_true', help='')
+parser.add_argument('-A', '--artists', action='store_true', help='Reorder artists')
+parser.add_argument('-a', '--albums', action='store_true', help='Reorder albums')
+parser.add_argument('-t', '--tracks', action='store_true', help='Reorder tracks')
 args = parser.parse_args()
 
 access_token = authenticate.authenticate()
@@ -165,6 +165,7 @@ for index, (unsorted_track, track) in enumerate(zip(reversed(unsorted_tracks), r
 
 
 if tracks != unsorted_tracks:
+    print("Sorting liked songs")
     unsorted_track_uris = get_uris(unsorted_tracks[0:-number])
     remove_tracks(unsorted_track_uris)
     
